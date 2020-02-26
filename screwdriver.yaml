@@ -3,19 +3,5 @@ shared:
   steps:
     - echo: echo hi
 jobs:
-  main1:
-    requires: [~commit, ~pr]
-  fork1:
-    requires: [main]
-  fork2:
-    requires: [main]
-  join1:
-    requires: [fork1, fork2]
-  main2:
-    requires: [~sd@6:main]
-  fork3:
-    requires: [main2]
-  fork4:
-    requires: [main2]
-  join2:
-    requires: [fork3, fork4]
+  main:
+    requires: [~sd@5:join1]
