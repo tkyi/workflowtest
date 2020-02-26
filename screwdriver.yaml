@@ -12,7 +12,7 @@ jobs:
   join1:
     requires: [fork1, fork2]
   main2:
-    requires: [~sd@6:main]
+    requires: [~sd@38:main]
   fork3:
     requires: [main2]
   fork4:
