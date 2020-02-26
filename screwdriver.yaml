@@ -4,4 +4,4 @@ shared:
     - echo: echo hi
 jobs:
   main:
-    requires: [~sd@5:join1]
+    requires: [~sd@37:join1]
