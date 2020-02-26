@@ -6,9 +6,9 @@ jobs:
   main1:
     requires: [~commit, ~pr]
   fork1:
-    requires: [main]
+    requires: [main1]
   fork2:
-    requires: [main]
+    requires: [main1]
   join1:
     requires: [fork1, fork2]
   main2:
