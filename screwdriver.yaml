@@ -3,19 +3,27 @@ shared:
   steps:
     - echo: echo hi
 jobs:
-  main1:
-    requires: [~commit, ~pr]
-  fork1:
-    requires: [main1]
-  fork2:
-    requires: [main1]
-  join1:
-    requires: [fork1, fork2]
-  main2:
-    requires: [~sd@38:main]
-  fork3:
-    requires: [main2]
-  fork4:
-    requires: [main2]
-  join2:
-    requires: [fork3, fork4]
+  functional-test:
+    requires: [~sd@46:sfs]
+  failover-test:
+    requires:
+      - ~functional-test
+  functional-ryt:
+    requires: [~sd@111:sfrys]
+  failover-ryt:
+    requires:
+      - ~functional-ryt
+  functional-rrt:
+    requires: [~sd@111:sfrrs]
+  failover-rrt:
+    requires:
+      - ~functional-rrt
+  functional-rat:
+    requires: [~sd@222:sfras]
+  failover-rat:
+    requires:
+      - ~functional-rat
+  component:
+    requires:
+      - ~commit
+      - ~pr
