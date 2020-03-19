@@ -2,20 +2,11 @@ shared:
   image: node:8
   steps:
     - echo: echo hi
+
 jobs:
-  main1:
-    requires: [~commit, ~pr]
-  fork1:
-    requires: [main1]
-  fork2:
-    requires: [main1]
-  join1:
-    requires: [fork1, fork2]
-  main2:
-    requires: [~sd@38:main]
-  fork3:
-    requires: [main2]
-  fork4:
-    requires: [main2]
-  join2:
-    requires: [fork3, fork4]
+    r7:
+        requires: [~commit, ~pr]
+    y6:
+        requires: [~pr, ~commit]
+    y7:
+        requires: [~pr, ~commit]
